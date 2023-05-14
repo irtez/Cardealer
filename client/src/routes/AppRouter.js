@@ -8,7 +8,7 @@ import Register from '../sections/Register';
 import FAQ from '../sections/FAQ';
 import NotFound from '../sections/NotFound';
 import User from '../sections/User/User';
-import Admin from '../sections/Admin';
+import Admin from '../sections/Admin/Admin';
 import { AppContext } from './AppContext.js'
 import { useContext } from 'react'
 import { observer } from 'mobx-react-lite';

@@ -73,6 +73,23 @@ class messageController {
         }
     }
 
+    async changeStatus(req, res) {
+        try {
+            const status = req.body.status
+            const id = req.params.id
+            console.log(status, id)
+            const msg = await Message.findById(id)
+            if (!msg) {
+                return res.status(404).json({message: "Message not found"})
+            }
+            const newMessage = await msg.updateOne({status: status})
+            return res.status(200).json(newMessage)
+        } catch (e) {
+            console.log(e)
+            return res.status(400).json({message: "Update error"})
+        }
+    }
+
 }
 
 module.exports = new messageController()

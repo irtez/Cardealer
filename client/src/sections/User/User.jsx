@@ -98,7 +98,7 @@ const PrevMessages = () => {
       {messagesData ? (
         messagesData.map(message => {
           const paragraphs = [];
-          const paragraphCount = Math.floor(message.text.length / charactersPerParagraph)
+          const paragraphCount = Math.fround(message.text.length / charactersPerParagraph)
           for (let i = 0; i < paragraphCount; i++) {
             const start = i * charactersPerParagraph;
             const end = start + charactersPerParagraph;

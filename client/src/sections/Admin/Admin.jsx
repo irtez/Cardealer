@@ -1,7 +1,97 @@
 import React, { useState, useEffect } from 'react';
-import './styles/sections.css'
-import { createBrand, getAllBrands } from '../http/brandAPI';
-import { createCar } from '../http/carAPI';
+import classes from './Admin.module.css'
+import { createBrand, getAllBrands } from '../../http/brandAPI';
+import { createCar } from '../../http/carAPI';
+import { getAllAdmin, changeStatus } from '../../http/messageAPI';
+import Loading from '../Loading';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+const Messages = () => {
+    const [messages, setMessages] = useState(null)
+
+    useEffect(() => {
+        getAllAdmin('opened')
+          .then(responseData => {
+            setMessages(responseData)
+          })
+          .catch(error => {
+            console.log('Error fetching data:', error)
+          })
+      }, [])
+
+    if (!messages) {
+        return <Loading/>
+    }
+
+    const handleClose = async (event) => {
+        let data = {}
+        data['id'] = event.target.value
+        data['status'] = 'closed'
+        try {
+            const newMessage = await changeStatus(data)
+            if (newMessage) {
+                alert('Обращение закрыто')
+                window.location.reload()
+            }
+        } catch (e) {
+            console.log(e)
+            alert('Ошибка')
+        }
+    }
+
+    const width = window.innerWidth
+    console.log(width)
+    const charactersPerParagraph = Math.floor(width/13.757) //108
+    return (
+        <div className={classes.userMessage}>
+            <h4>Открытые обращения пользователей</h4>
+            {messages.map(message => {
+                const date = new Date(Number(message.timestamp))
+                const paragraphs = [];
+                const paragraphCount = Math.fround(message.text.length / charactersPerParagraph)
+                for (let i = 0; i < paragraphCount; i++) {
+                    const start = i * charactersPerParagraph;
+                    const end = start + charactersPerParagraph;
+                    const paragraphText = message.text.substring(start, end);
+                    paragraphs.push(<p key={i}>{paragraphText}</p>);
+                }
+                return (
+                <div className={classes.usermsg}>
+                    <Accordion>
+                        <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        >
+                        <Typography>Обращение по теме «{message.title}»</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                        <Typography  style={{padding: "2em", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start"}}>
+                            <ul>
+                                <li><b>Почта пользователя:</b> {message.useremail}</li>
+                                <li><b>Имя пользователя:</b> {message.username}</li>
+                                <li><b>Телефон пользователя:</b> {message.userphone}</li>
+                                <li><b>Время отправки:</b> {String(date)}</li>
+                                <li><b>Текст:</b> 
+                                    {paragraphs}
+                                </li>
+                            </ul>
+                            <button value={message._id} onClick={handleClose}>Закрыть обращение</button>
+                        </Typography>
+                        </AccordionDetails>
+                        
+                    </Accordion>
+                </div>)
+
+            })}
+        </div>
+    )
+
+}
 
 const Admin = () => {
     //brand
@@ -105,8 +195,8 @@ const Admin = () => {
 
 
   return (
-    <section id="admin">
-        <div className='creation'>
+    <section id={classes.admin}>
+        <div className={classes.creation}>
             <p>Создание бренда</p>
             <form onSubmit={handleBrandSubmit}>
                 <input name="brandname" type="text" placeholder='Название бренда' required></input>
@@ -114,14 +204,14 @@ const Admin = () => {
                 <button type="submit">Создать бренд</button>
             </form>
             {newBrand && (
-                <div className='brandCreated'>
+                <div className={classes.brandCreated}>
                     <p>Создан новый бренд {newBrand.name}</p>
                     <img src={newBrand.imgurl} alt="newBrand"></img>
                 </div>
                 ) 
             }
         </div>
-        <div className='creation'>
+        <div className={classes.creation}>
             <p>Создание автомобиля</p>
             <form onSubmit={handleCarSubmit}>
                 <input name="carmodel" type="text" placeholder='Модель автомобиля' required/>
@@ -145,7 +235,7 @@ const Admin = () => {
                 <button type="submit">Создать автомобиль</button>
             </form>
             {newCar && (
-                <div className='carCreated'>
+                <div className={classes.carCreated}>
                     <p>Создан новый автомобиль <b>{newCar.brand} {newCar.name}</b></p>
                     <p>Комплектация: {newCar.configuration}</p>
                     <p>Год выпуска: {newCar.year}</p>
@@ -160,6 +250,7 @@ const Admin = () => {
                 ) 
             }
         </div>
+        <Messages/>
     </section>
   );
 };

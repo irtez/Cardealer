@@ -29,3 +29,15 @@ export const getAllAdmin = async (status) => {
         alert(e.response.data.message)
     }
 }
+
+export const changeStatus = async (data) => {
+    try {
+        const id = data.id
+        const status = data.status
+        const response = await authInstance.patch(`message/${id}`, {status})
+        return response.data
+    } catch (e) {
+        console.log(e.response.data.message)
+        alert(e.response.data.message)
+    }
+}
