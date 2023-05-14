@@ -1,13 +1,12 @@
 const Message = require('../models/Message')
 const User = require('../models/User')
-const { secret } = require('../config')
 const jwt = require('jsonwebtoken')
 
 class messageController {
     async create(req, res) {
         try {
             const token = req.headers.authorization.split(' ')[1]
-            const data = jwt.verify(token, secret)
+            const data = jwt.verify(token, process.env.secret)
             if (!data) {
                 return res.status(400).json({message: "Bad token"})
             }
@@ -37,7 +36,7 @@ class messageController {
     async getAllUser(req, res) {
         try {
             const token = req.headers.authorization.split(' ')[1]
-            const data = jwt.verify(token, secret)
+            const data = jwt.verify(token, process.env.secret)
             if (!data) {
                 return res.status(400).json({message: "Bad token"})
             }

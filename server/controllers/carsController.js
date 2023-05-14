@@ -1,5 +1,4 @@
 const Car = require('../models/Car')
-const { imgKey } = require('../config')
 const imgUploader = require("imgbb-uploader")
 
 
@@ -11,7 +10,7 @@ class carsController {
             if (candidate) {
                 return res.status(400).json({message: "Автомобиль с таким названием уже существует"})
             }
-            const response = await imgUploader(imgKey, req.file.path)
+            const response = await imgUploader(process.env.imgKey, req.file.path)
             const imgURL = response.url
             try {
                 const car = new Car({

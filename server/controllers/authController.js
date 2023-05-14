@@ -3,7 +3,6 @@ const Role = require('../models/Role')
 const bcrypt = require('bcryptjs')
 const { validationResult } = require('express-validator')
 const jwt = require('jsonwebtoken')
-const { secret } = require('../config')
 
 const generateAccessToken = (id, email, roles) => {
     const payload = {
@@ -11,7 +10,7 @@ const generateAccessToken = (id, email, roles) => {
         email,
         roles
     }
-    return jwt.sign(payload, secret, {expiresIn: "24h"})
+    return jwt.sign(payload, process.env.secret, {expiresIn: "24h"})
 }
 
 class authController {
@@ -64,7 +63,7 @@ class authController {
         try {
             const token = req.headers.authorization.split(' ')[1]
             try {
-                jwt.verify(token, secret)
+                jwt.verify(token, process.env.secret)
                 return res.status(200).json({token: token})
             } catch (e) {
                 console.log(e)
@@ -82,7 +81,7 @@ class authController {
         try {
             const token = req.headers.authorization.split(' ')[1]
             try {
-                const {email} = jwt.verify(token, secret)
+                const {email} = jwt.verify(token, process.env.secret)
                 const user = await User.findOne({email})
                 if (!user) {
                     return res.status(400).json({error: "Пользователь не найден"})
@@ -113,7 +112,7 @@ class authController {
     async updateUser(req, res) {
         try {
             const token = req.headers.authorization.split(' ')[1]
-            const {email} = jwt.verify(token, secret)
+            const {email} = jwt.verify(token, process.env.secret)
             try {
                 const user = await User.findOne({email: email})
                 const field = Object.keys(req.body.newData)[0]

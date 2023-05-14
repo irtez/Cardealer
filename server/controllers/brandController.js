@@ -1,5 +1,4 @@
 const Brand = require('../models/Brand')
-const { imgKey } = require('../config')
 const imgUploader = require("imgbb-uploader");
 
 
@@ -11,7 +10,7 @@ class brandController {
             if (candidate) {
                 return res.status(400).json({message: "Бренд с таким названием уже существует"})
             }
-            const response = await imgUploader(imgKey, req.file.path)
+            const response = await imgUploader(process.env.imgKey, req.file.path)
             if (!response) {
                 return res.status(400).json({message: "Ошибка загрузки изображения на сервер"})
             }
@@ -37,7 +36,7 @@ class brandController {
             if (!brand) {
                 return res.status(400).json({message: "Бренд с таким названием нет"})
             }
-            const response = await imgUploader(imgKey, req.file.path)
+            const response = await imgUploader(process.env.imgKey, req.file.path)
             if (!response) {
                 return res.status(400).json({message: "Ошибка загрузки изображения на сервер"})
             }
