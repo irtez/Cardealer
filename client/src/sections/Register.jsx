@@ -6,17 +6,18 @@ import { useContext, useState } from 'react';
 import { AppContext } from '../routes/AppContext';
 import { observer } from 'mobx-react-lite'
 import { register } from '../http/userAPI'
+import Loading from './Loading';
 
 const Register = observer(() => {
 
   const {user} = useContext(AppContext);
   const navigate = useNavigate();
-  //React.useEffect(() => {
   if (user.isAuth) navigate('/user', {replace: true})
   if (user.isAdmin) navigate('/admin', {replace: true})
-  //}, [user, navigate])
+  const [isLoading, setIsLoading] = useState(false)
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true)
     const data = await register(email, name, phoneNumber.replace(/\D/g, ''), pass1)
     if (data) {
       user.login(data)
@@ -68,6 +69,15 @@ const Register = observer(() => {
     setName(event.target.value)
   }
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0
+    })
+  }
+
+  if (isLoading) {
+    return <Loading/>
+  }
 
   return (
     <section id="register">
@@ -103,7 +113,7 @@ const Register = observer(() => {
             </div>		
           </form>
           <div className='register_container'>
-            <Link to='/login' className="register">
+            <Link onClick={handleScrollToTop} to='/login' className="register">
               <span className="button__text">Войти</span>
               <i className="button__icon fa fa-chevron-right"></i>
             </Link>

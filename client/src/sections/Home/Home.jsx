@@ -111,6 +111,12 @@ const Home = () => {
     return array;
   }
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0
+    })
+  }
+
   if (!cars || !brands) {
     return <Loading/>
   }
@@ -119,7 +125,7 @@ const Home = () => {
 
   return (
     <section id={classes.home}>
-      <h1><Link to='/cars'>Автомобили в наличии</Link></h1>
+      <h1><Link onClick={handleScrollToTop} to='/cars'>Автомобили в наличии</Link></h1>
       <div className={classes.cars}>
         {carsShuffled.slice(0,3).map(car =>  {
         //const car = cars[index]
@@ -128,7 +134,7 @@ const Home = () => {
             borderRadius: "20px",
             boxShadow: "0px 0px 3px 3px rgba(255, 255, 255, 0.2)"
           }}>
-            <Link style={{color: 'black'}} to={'/cars/' + car._id}>
+            <Link onClick={handleScrollToTop} style={{color: 'black'}} to={'/cars/' + car._id}>
             <CardActionArea>
               <CardMedia
                 component="img"

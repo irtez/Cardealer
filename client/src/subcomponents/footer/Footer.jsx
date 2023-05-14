@@ -37,31 +37,41 @@ const AboutUs = () => {
 
 const Quicklinks = observer(() => {
     const {user} = useContext(AppContext)
+    const handleScrollToTop = () => {
+        window.scrollTo({
+          top: 0
+        })
+      }
     return (
         <div className="sec quicklinks">
             <h2>Профиль</h2>
             <ul>
                 {user.isAuth ? (
-                <li><Link to='/user'>Мой профиль</Link></li>
+                <li><Link onClick={handleScrollToTop} to='/user'>Мой профиль</Link></li>
                 ) : (
                 <>
-                <li><Link to='/login'>Войти</Link></li>
-                <li><Link to='/register'>Зарегистрироваться</Link></li>
+                <li><Link onClick={handleScrollToTop} to='/login'>Войти</Link></li>
+                <li><Link onClick={handleScrollToTop} to='/register'>Зарегистрироваться</Link></li>
                 </>
                 )}
-                {user.isAdmin ? (<li><Link to='/admin'>Админ-панель</Link></li>) : ("")}
+                {user.isAdmin ? (<li><Link onClick={handleScrollToTop} to='/admin'>Админ-панель</Link></li>) : ("")}
             </ul>
         </div>
     )
 })
 
 const Services = () => {
+    const handleScrollToTop = () => {
+        window.scrollTo({
+          top: 0
+        })
+      }
     return (
         <div className="sec quicklinks">
             <h2>Услуги</h2>
             <ul>
-                <li><Link to='/cars'>Автомобили в наличии</Link></li>
-                <li><Link to='/service'>Сервис</Link></li>
+                <li><Link onClick={handleScrollToTop} to='/cars'>Автомобили в наличии</Link></li>
+                <li><Link onClick={handleScrollToTop} to='/service'>Сервис</Link></li>
             </ul>
         </div>
     )

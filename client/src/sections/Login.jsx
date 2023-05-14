@@ -6,18 +6,19 @@ import { AppContext } from '../routes/AppContext'
 import { observer } from 'mobx-react-lite'
 import { login } from '../http/userAPI'
 import { useState } from 'react'
+import Loading from './Loading'
 
 
 const Login = observer(() => {
   const {user} = useContext(AppContext)
   const navigate = useNavigate()
-  //React.useEffect(() => {
-  
   if (user.isAuth) navigate('/user', {replace: true})
   if (user.isAdmin) navigate('/admin', {replace: true})
-  //}, [user, navigate])
+  const [isLoading, setIsLoading] = useState(false)
+
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setIsLoading(true)
     const email = event.target.email.value.trim()
     const password = event.target.password.value.trim()
     const data = await login(email, password)
@@ -35,6 +36,16 @@ const Login = observer(() => {
   }
   function handlePasswordChange(event) {
     setPassword(event.target.value)
+  }
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0
+    });
+  };
+
+  if (isLoading) {
+    return <Loading/>
   }
 
   return (
@@ -59,7 +70,7 @@ const Login = observer(() => {
             	
           </form>
           <div className='register_container'>
-            <Link to='/register' className="register">
+            <Link onClick={handleScrollToTop} to='/register' className="register">
               <span className="button__text">Зарегистрироваться</span>
               <i className="button__icon fa fa-chevron-right"></i>
             </Link>

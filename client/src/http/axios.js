@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 const guestInstance = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://car-dealer-server-aw8r.onrender.com'
 })
 
 const authInstance = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://car-dealer-server-aw8r.onrender.com'
 })
 
 // добавляем в запрос данные для авторизации с помощью перехватчика (interceptor)

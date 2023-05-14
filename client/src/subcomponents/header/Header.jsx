@@ -16,14 +16,6 @@ const Header = observer((props) => {
         navigate('/login', {replace: true})
     }
     return(
-        // <>
-        // <UpperDiv/>
-        // <header>
-        //     <Link to='/' className={classes.imgref}><img className={classes.imglogo} src={logo} alt="Логотип"/></Link>
-        //     <Nav nav = {props.data.nav}/>
-        // </header>
-        // </>
-        
             <div>
                 <div className="header-dark">
                     <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">

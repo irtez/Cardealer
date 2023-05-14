@@ -3,6 +3,11 @@ import classes from './404.module.css'
 import { Link } from 'react-router-dom'
 
 const NotFound = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0
+    })
+  }
   return (
     <section id={classes.NotFound}>
       <h1>Запрашиваемая страница не найдена.</h1>
@@ -12,7 +17,7 @@ const NotFound = () => {
         <span>4</span>
       </section>
       <div class={classes.linkcontainer}>
-        <Link to='/' class={classes.morelink}>На главную страницу</Link>
+        <Link onClick={handleScrollToTop} to='/' class={classes.morelink}>На главную страницу</Link>
       </div>
     </section>
   )

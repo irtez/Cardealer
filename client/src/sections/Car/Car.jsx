@@ -69,6 +69,12 @@ const Car = () => {
       }
     }
 
+    const handleScrollToTop = () => {
+      window.scrollTo({
+        top: 0
+      })
+    }
+
     if (!car) {
         return <Loading/>
     }
@@ -157,7 +163,7 @@ const Car = () => {
             <button type='submit'>Изменить цену</button>
           </form>
         ) : (<h3 className={classes.carprice}>{car.price.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽</h3>)}
-        <Link to='/user'>Получить предложение</Link>
+        <Link onClick={handleScrollToTop} to='/user'>Получить предложение</Link>
       </div>
     </section>
   );
