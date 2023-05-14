@@ -5,7 +5,6 @@ import Cars from '../sections/Cars/Cars';
 import Service from '../sections/Service';
 import Login from '../sections/Login';
 import Register from '../sections/Register';
-import FAQ from '../sections/FAQ';
 import NotFound from '../sections/NotFound';
 import User from '../sections/User/User';
 import Admin from '../sections/Admin/Admin';
@@ -20,7 +19,6 @@ const publicRoutes = [
     {path: '/register', Component: Register},
     {path: '/cars', Component: Cars},
     {path: '/service', Component: Service},
-    {path: '/faq', Component: FAQ},
     {path: '/about', Component: About},
     {path: '/cars/:id', Component: Car}
 ]

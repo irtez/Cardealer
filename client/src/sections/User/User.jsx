@@ -87,9 +87,9 @@ const PrevMessages = () => {
         id="select"
         onChange={handleChange}
         labelId="select-label"
-
+        defaultValue=''
       >
-        <MenuItem value=""></MenuItem>
+        <MenuItem value=""> </MenuItem>
         <MenuItem value="opened">Открытые</MenuItem>
         <MenuItem value="closed">Закрытые</MenuItem>
       </Select>

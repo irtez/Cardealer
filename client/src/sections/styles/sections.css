@@ -1,28 +1,6 @@
-
-
-#loading {
-    height: 100vh;
-}
-
-#about {
-    align-items: flex-start;
-    justify-content: center;
-    flex: row;
-    color: red;
-}
-
-
-
 a:hover {
     text-decoration: none;
 }
-
-.messagetext {
-    width: 100px;
-    height: 200px;
-}
-
-
 
 /* LOADING */
 
@@ -30,6 +8,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .spinner {
