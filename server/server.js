@@ -15,7 +15,7 @@ app.use("/", router)
 
 const start = async () => {
     try {
-        await mongoose.connect("mongodb://localhost:27017/CarsDealership")
+        await mongoose.connect(process.env.dbKey)
         app.listen(PORT, () => {
             console.log(`server is listening port ${PORT}`)
         })
