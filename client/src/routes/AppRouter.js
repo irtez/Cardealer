@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../sections/Home/Home';
 import About from '../sections/About/About';
 import Cars from '../sections/Cars/Cars';
-import Service from '../sections/Service';
+import Service from '../sections/Service/Service';
 import Login from '../sections/Login';
 import Register from '../sections/Register';
 import NotFound from '../sections/404/NotFound';
