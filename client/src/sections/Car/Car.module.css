@@ -60,7 +60,8 @@
 .carimg img {
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .carspecs {
@@ -146,3 +147,19 @@
     border-radius: 10px;
     border: 1px solid black;
 }
+
+@media (max-width:1200px) {
+    #car {
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding-top: 6em;
+        align-items: center;
+    }
+    .carfull {
+        width: 90%;
+    }
+
+    .carinfo {
+        width: 90%;
+    }
+  }

@@ -74,7 +74,7 @@ const ContactUs = () => {
             <ul className="info">
                 <li>
                     <span><i className="fa fa-map-marker" aria-hidden="true"></i></span>
-                    <span>78 Вернадского проспект,<br/>Москва, 117513,<br/>Россия</span>
+                    <span>78 Вернадского проспект,<br/>Москва, 119454,<br/>Россия</span>
                 </li>
                 <li>
                     <span><i className="fa fa-phone" aria-hidden="true"></i></span>

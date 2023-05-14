@@ -39,10 +39,10 @@ const Header = observer((props) => {
                                     ) : ("")}
                                 </ul>
                                 <form className="form-inline mr-auto" target="_self">
-                                    <div className="form-group">
+                                    {/* <div className="form-group">
                                         <label htmlFor="search-field"></label>
                                         <input className="form-control search-field" type="search" name="search" id="search-field"/>
-                                    </div>
+                                    </div> */}
                                     </form>
                                     {user.isAuth ? (
                                         <>
