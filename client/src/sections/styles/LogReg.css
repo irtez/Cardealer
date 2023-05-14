@@ -210,3 +210,11 @@ a:hover {
 	transition: .2s;
 	margin-right: 1em;
 }
+
+.popup {
+	color: rgb(215, 1, 1);
+	position: absolute;
+	font-weight: 700;
+	right: 17%;
+	margin-top: 1%;
+}

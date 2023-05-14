@@ -52,7 +52,11 @@ const Login = observer(() => {
             </div>
             <button className="button login__submit" disabled={!(email && password)}>
               <span className="button__text">Войти</span>
-            </button>				
+            </button>
+            <div className='popup' style={{display: !(email&&password) ? ("block") : ("none")}}>
+              Заполните все поля
+            </div>			
+            	
           </form>
           <div className='register_container'>
             <Link to='/register' className="register">

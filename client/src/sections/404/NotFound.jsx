@@ -1,0 +1,20 @@
+import React from 'react'
+import classes from './404.module.css'
+import { Link } from 'react-router-dom'
+
+const NotFound = () => {
+  return (
+    <section id={classes.NotFound}>
+      <section class={classes.errorcontainer}>
+        <span>4</span>
+        <span><span class={classes.screenreadertext}>0</span></span>
+        <span>4</span>
+      </section>
+      <div class={classes.linkcontainer}>
+        <Link to='/' class={classes.morelink}>На главную страницу</Link>
+      </div>
+    </section>
+  )
+}
+
+export default NotFound

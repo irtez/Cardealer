@@ -97,7 +97,10 @@ const Register = observer(() => {
             </div>
             <button type="submit" className="button login__submit" disabled={!((pass1 === pass2) && pass1 && pass2 && email && name && phoneNumber)}>
               <span className="button__text">Зарегистрироваться</span>
-            </button>				
+            </button>			
+            <div className='popup' style={{display: !(email&&pass1&&pass2&&name&&phoneNumber) ? ("block") : ("none")}}>
+              Заполните все поля
+            </div>		
           </form>
           <div className='register_container'>
             <Link to='/login' className="register">

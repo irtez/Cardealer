@@ -5,7 +5,7 @@ import Cars from '../sections/Cars/Cars';
 import Service from '../sections/Service';
 import Login from '../sections/Login';
 import Register from '../sections/Register';
-import NotFound from '../sections/NotFound';
+import NotFound from '../sections/404/NotFound';
 import User from '../sections/User/User';
 import Admin from '../sections/Admin/Admin';
 import { AppContext } from './AppContext.js'
