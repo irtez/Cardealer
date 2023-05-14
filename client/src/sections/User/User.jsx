@@ -70,7 +70,7 @@ const MessageForm = () => {
 const PrevMessages = () => {
   const [messagesData, setMessagesData] = useState(null)
   const handleChange = async (event) => {
-    if (event.target.value) {
+    if (event.target.value !== "all") {
       const status = event.target.value
       const data = await getAllUser(status)
       console.log(data)
@@ -87,9 +87,9 @@ const PrevMessages = () => {
         id="select"
         onChange={handleChange}
         labelId="select-label"
-        defaultValue=''
+        defaultValue="all"
       >
-        <MenuItem value=""> </MenuItem>
+        <MenuItem value="all">Выберите статус:</MenuItem>
         <MenuItem value="opened">Открытые</MenuItem>
         <MenuItem value="closed">Закрытые</MenuItem>
       </Select>

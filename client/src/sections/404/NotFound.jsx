@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const NotFound = () => {
   return (
     <section id={classes.NotFound}>
+      <h1>Запрашиваемая страница не найдена.</h1>
       <section class={classes.errorcontainer}>
         <span>4</span>
         <span><span class={classes.screenreadertext}>0</span></span>
