@@ -163,7 +163,13 @@ const Car = () => {
             <button type='submit'>Изменить цену</button>
           </form>
         ) : (<h3 className={classes.carprice}>{car.price.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽</h3>)}
-        <Link onClick={handleScrollToTop} to='/user'>Получить предложение</Link>
+        {user.isAuth ? 
+        (
+          <Link onClick={handleScrollToTop} to='/user'>Получить предложение</Link>
+          ) : (
+          <Link onClick={handleScrollToTop} to='/login'>Получить предложение</Link>
+        )}
+        
       </div>
     </section>
   );

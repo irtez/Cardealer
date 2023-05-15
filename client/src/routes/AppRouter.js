@@ -45,7 +45,8 @@ const AppRouter = observer(() => {
             {user.isAdmin && adminRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} />
             )}
-            <Route path='*' element={<NotFound/>} />
+            <Route path='/404' element={<NotFound/>} />
+            <Route path='/*' element={<NotFound/>} />
         </Routes>
     )
 })
