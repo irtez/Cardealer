@@ -8,7 +8,7 @@ const authInstance = axios.create({
     baseURL: 'https://car-dealer-server-aw8r.onrender.com'
 })
 
-// добавляем в запрос данные для авторизации с помощью перехватчика (interceptor)
+
 const authInterceptor = (config) => {
     const token = localStorage.getItem('token')
     if (token) {

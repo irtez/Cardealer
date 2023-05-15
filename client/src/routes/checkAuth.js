@@ -1,6 +1,7 @@
 import { AppContext } from './AppContext.js'
 import { check } from '../http/userAPI.js'
 import { useContext, useEffect, useState } from 'react'
+import Loading from '../sections/Loading.jsx'
 
 
 const CheckAuth = (props) => {
@@ -21,7 +22,7 @@ const CheckAuth = (props) => {
 
     if (checking) {
         return (
-            <section>Загрузка...</section>
+            <Loading/>
         )
     }
 
