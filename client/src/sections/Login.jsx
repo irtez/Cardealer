@@ -27,6 +27,7 @@ const Login = observer(() => {
       if (user.isAuth) navigate('/user')
       if (user.isAdmin) navigate('/admin')
     }
+    setIsLoading(false)
   }
   const [password, setPassword] = useState(null)
   const [email, setEmail] = useState(null)

@@ -97,3 +97,48 @@
 .carprice span {
     font-size: 20px;
 }
+
+
+
+@media (max-width:1200px) {
+    .filters {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: max-content;
+        padding: 5em .1em;
+        margin-top: 3em;
+        width: 100%;
+    }
+
+    .carcard {
+        width: 90%;
+        padding-bottom: 2em;
+    }
+
+    .carcontainer {
+        width: 100%;
+    }
+
+    .carcard {
+        height: max-content;
+        padding-bottom: 0;
+    }
+
+    .carimage {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .carcard img {
+        width: 100%;
+        height: auto;
+    }
+
+    #carssection {
+        width: 100%;
+        padding: 0;
+    }
+
+  }

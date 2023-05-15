@@ -172,6 +172,12 @@
     
   }
   
+  @media (max-width:768px) {
+    .header-dark  {
+      height: 5em;
+    }
+  }
+
   @media (min-width:768px) {
     .header-dark .hero h1 {
       margin-bottom:50px;

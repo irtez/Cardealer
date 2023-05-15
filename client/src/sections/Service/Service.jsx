@@ -30,14 +30,14 @@ const Service = () => {
         </div>
       </div>
       <div className={classes.info}>
-      <h5>Более подробно узнавайте по телефону, почте или посетив нас по адресу г. Москва, проспект Вернадского, д. 78.</h5>
-      <Link onClick={handleScrollToTop} to='/about'>Контакты</Link>
-      <h5>Также Вы можете оставить обращение в личном кабинете и мы Вам перезвоним!</h5>
-      {user.isAuth ? (
-        <Link onClick={handleScrollToTop} to='/user'>Оставить обращение</Link>
-        ) : (
-        <Link onClick={handleScrollToTop} to='/login'>Оставить обращение</Link>
-      )}
+        <h5>Более подробно узнавайте по телефону, почте или посетив нас по адресу г. Москва, проспект Вернадского, д. 78.</h5>
+        <Link onClick={handleScrollToTop} to='/about'>Контакты</Link>
+        <h5>Также Вы можете оставить обращение в личном кабинете и мы Вам перезвоним!</h5>
+        {user.isAuth ? (
+          <Link onClick={handleScrollToTop} to='/user'>Оставить обращение</Link>
+          ) : (
+          <Link onClick={handleScrollToTop} to='/login'>Оставить обращение</Link>
+        )}
       </div>
     </section>
   );

@@ -42,6 +42,19 @@
         max-width: 100%;
         padding-top: 4em;
     }
+
+    #home img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .dealerinfo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
   } 
 
 

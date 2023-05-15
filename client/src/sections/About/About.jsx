@@ -6,7 +6,7 @@ const About = () => {
     <section id={classes.about}>
       <h1>Контакты</h1>
       <div className={classes.contactsmain}>
-        <div style={{position: "relative", overflow: "hidden"}}>
+        <div className={classes.address} style={{position: "relative", overflow: "hidden"}}>
           <a 
             href="https://yandex.ru/maps/org/rtu_mirea/1084832794/?utm_medium=mapframe&utm_source=maps"
             style={{color: "#eee", fontSize:"12px", position:"absolute", top:"0px"}}>

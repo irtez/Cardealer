@@ -195,3 +195,20 @@
     flex-direction: column;
     min-height: max-content;
 }
+
+@media (max-width:700px) {
+    .usercard {
+        width: 90%;
+    }
+    
+    .usermain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .prevmessages {
+        width: 90%;
+        text-align: center;
+    }
+}
