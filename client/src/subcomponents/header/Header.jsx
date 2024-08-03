@@ -18,18 +18,21 @@ const Header = observer((props) => {
     return(
             <div>
                 <div className="header-dark">
-                    <nav className="navbar navbar-dark navbar-expand-md navigation-clean-search">
-                        <div className="container"><Link className="navbar-brand" to='/'>German Autopoint</Link><button className="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span className="sr-only">Toggle navigation</span><span className="navbar-toggler-icon"></span></button>
-                            <div className="collapse navbar-collapse"
-                                id="navcol-1">
-                                <ul className="nav navbar-nav">
+                    <nav className="navbar navbar-dark navbar-expand-lg">
+                        <div className="container">
+                            <Link className="navbar-brand" to='/'>German Autopoint</Link>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navcol-1">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navcol-1">
+                                <div className="nav navbar-nav">
                                     <li className="nav-item" role="presentation"><Link className="nav-link" to='/cars'>Автомобили</Link></li>
                                     <li className="nav-item" role="presentation"><Link className="nav-link" to='/service'>Сервис</Link></li>
                                     <li className="nav-item" role="presentation"><Link className="nav-link" to='/about'>Контакты</Link></li>
                                     {user.isAdmin ? (
                                         <li className="nav-item-abs" role="presentation"><Link className="nav-link" to='/admin'>Админ-панель</Link></li>
                                     ) : ("")}
-                                </ul>
+                                 </div>
                                 <form className="form-inline mr-auto" target="_self">
                                     {/* <div className="form-group">
                                         <label htmlFor="search-field"></label>
@@ -54,6 +57,7 @@ const Header = observer((props) => {
                     </nav>
                     
                 </div>
+                
             </div>
             
             

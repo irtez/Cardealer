@@ -1,7 +1,6 @@
 const {Schema, model} = require('mongoose')
 
 
-//name, year, engine, body, transmission, mileage, img, brand
 const Car = new Schema({
     name: {
         type: String,
